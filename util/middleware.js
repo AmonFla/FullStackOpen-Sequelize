@@ -30,7 +30,6 @@ const getTokenFrom = (req, resp,next) => {
 
 const userExtractor = (req, res, next) => {
   const decodedToken = jwt.verify(req.token, SECRET)
-  console.log(decodedToken)
   if(!req.token || !decodedToken.id){
     return res.status(401).json({ error: 'token mission or invalid' })
   }

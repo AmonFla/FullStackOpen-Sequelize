@@ -30,15 +30,11 @@ router.get('/:id',getBlog, async(req, res) => {
 })
 
 router.post('/', middleware.userExtractor, async(req, res) => {
-  if(req.blog.userId === req.user){
-    const blog = await Blog.create({ ...req.body, userId: req.user })
-    res.json(blog)
-  }else{
-    res.sendStatus(401)
-  }
+  const blog = await Blog.create({ ...req.body, userId: req.user })
+  res.json(blog)
 })
 
-router.delete('/:id', getBlog, async(req, res) => {
+router.delete('/:id', getBlog, middleware.userExtractor, async(req, res) => {
   if(req.blog.userId === req.user){
     req.blog.destroy()
     res.sendStatus(202)
