@@ -6,6 +6,7 @@ Ejercicios de la sección Relational Database del curso de https://fullstackopen
 * [Direct SQL](https://sequelize.org/master/manual/raw-queries.html)
 * [Model](https://sequelize.org/master/manual/model-basics.html)
 * [Gaps in sequences in PostgreSQL](https://www.cybertec-postgresql.com/en/gaps-in-sequences-postgresql/)
+* [Sequelize Field Validations](https://sequelize.org/master/manual/validations-and-constraints.html)
 
 
 ## Heroku 
