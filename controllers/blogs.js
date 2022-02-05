@@ -4,7 +4,13 @@ const { Blog } = require('../models')
 
 const getBlog = async(req,res,next) => {
   req.blog = await Blog.findByPk(req.params.id)
-  next()
+  if(req.blog){
+    next()
+  }else{
+    const e = new Error('Blog not found')
+    e.name = 'NotFound'
+    throw e
+  }
 }
 
 router.get('/', async(req, res) => {
@@ -13,41 +19,24 @@ router.get('/', async(req, res) => {
 })
 
 router.get('/:id',getBlog, async(req, res) => {
-  if(req.blog){
-    res.json(req.blog)
-  }else{
-    return res.status(404).end()
-  }
+  res.json(req.blog)
 })
 
 router.post('/', async(req, res) => {
-  try{
-    const blog = await Blog.create(req.body)
-    res.json(blog)
-  }catch(error){
-    return res.status(400).json({ error })
-  }
+  const blog = await Blog.create(req.body)
+  res.json(blog)
 })
 
 router.delete('/:id', getBlog, async(req, res) => {
-  if(req.blog){
-    req.blog.destroy()
-    res.sendStatus(202)
-  }else{
-    res.sendStatus(404)
-  }
+  req.blog.destroy()
+  res.sendStatus(202)
 })
 
 router.put('/:id', getBlog, async(req,res) => {
 
-  if(req.blog){
-    req.blog.likes = req.body.likes
-    req.blog.save()
-    res.json(req.blog)
-  }else{
-    console.log(1)
-    res.sendStatus(404)
-  }
+  req.blog.likes = req.body.likes
+  req.blog.save()
+  res.json(req.blog)
 })
 
 module.exports = router

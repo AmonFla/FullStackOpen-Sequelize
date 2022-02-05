@@ -1,9 +1,11 @@
 
 const express = require('express')
+require('express-async-errors')
 const app = express()
 
 const { PORT } = require('./util/config')
 const { connectToDb } = require('./util/db')
+const middleware = require('./util/middleware')
 
 const blogsRouter = require('./controllers/blogs')
 
@@ -11,6 +13,8 @@ app.use(express.json())
 app.use('/api/blogs', blogsRouter)
 
 
+
+app.use(middleware.errorHundler)
 
 const start = async() => {
   await connectToDb()
