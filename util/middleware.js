@@ -1,3 +1,5 @@
+const jwt = require('jsonwebtoken')
+const { SECRET } = require('./config')
 
 const errorHundler = (error, req, res, next) => {
 
@@ -15,4 +17,25 @@ const errorHundler = (error, req, res, next) => {
 const unknownEndpoint = (request, response) => {
   response.status(404).send({ error: 'unknown endpoint' })
 }
-module.exports = { errorHundler,unknownEndpoint  }
+
+const getTokenFrom = (req, resp,next) => {
+  const authorization = req.get('authorization')
+  if(authorization && authorization.toLowerCase().startsWith('bearer ')){
+    req.token = authorization.substring(7)
+  }else{
+    req.token = null
+  }
+  next()
+}
+
+const userExtractor = (req, res, next) => {
+  const decodedToken = jwt.verify(req.token, SECRET)
+  console.log(decodedToken)
+  if(!req.token || !decodedToken.id){
+    return res.status(401).json({ error: 'token mission or invalid' })
+  }
+  req.user = decodedToken.id
+  next()
+}
+
+module.exports = { errorHundler,unknownEndpoint,getTokenFrom ,userExtractor }
