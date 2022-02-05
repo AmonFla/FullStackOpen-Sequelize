@@ -1,0 +1,27 @@
+{
+  "name": "fullstackopen-sequelize",
+  "version": "1.0.0",
+  "description": "Ejercicios de la sección Relational Database del curso de https://fullstackopen.com",
+  "main": ".eslintrc.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AmonFla/FullStackOpen-Sequelize.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AmonFla/FullStackOpen-Sequelize/issues"
+  },
+  "homepage": "https://github.com/AmonFla/FullStackOpen-Sequelize#readme",
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "pg": "^8.7.3",
+    "sequelize": "^6.15.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.8.0"
+  }
+}
