@@ -12,8 +12,31 @@ POST http://localhost:3001/api/blogs
 Content-Type: application/json
 Authorization: Bearer {{login.response.body.token}}
 
-{ 
+ { 
     "author": "Test Author",
     "url": "http://google.com",
     "title": "Google" 
+  }
+
+
+###
+POST http://localhost:3001/api/blogs
+Content-Type: application/json
+Authorization: Bearer {{login.response.body.token}}
+
+ { 
+    "author": "Dan Abramov",
+    "url": "https://overreacted.io/on-let-vs-const/",
+    "title": "On let vs const" 
+  }  
+
+###
+POST http://localhost:3001/api/blogs
+Content-Type: application/json
+Authorization: Bearer {{login.response.body.token}}
+
+ { 
+    "author": "Laurenz Albe",
+    "url": "https://www.cybertec-postgresql.com/en/gaps-in-sequences-postgresql/",
+    "title": "Gaps in sequences in PostgreSQL'" 
   }
