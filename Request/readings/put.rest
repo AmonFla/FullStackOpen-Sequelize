@@ -1,0 +1,17 @@
+# @name login
+POST http://localhost:3001/api/login
+Content-Type: application/json
+
+{
+  "username": "test@test.com", 
+  "password": "123456" 
+}
+
+###
+PUT http://localhost:3001/api/readinglist/1
+Content-Type: application/json
+Authorization: Bearer {{login.response.body.token}}
+
+{ 
+  "read": true
+}
