@@ -8,6 +8,10 @@ Ejercicios de la sección Relational Database del curso de https://fullstackopen
 * [Gaps in sequences in PostgreSQL](https://www.cybertec-postgresql.com/en/gaps-in-sequences-postgresql/)
 * [Sequelize Field Validations](https://sequelize.org/master/manual/validations-and-constraints.html)
 * [Sequelize Operators] (https://sequelize.org/master/manual/model-querying-basics.html#operators)
+* [Agregración en sequelize] (https://sequelize.org/master/manual/model-querying-basics.html#specifying-attributes-for-select-queries)
+* [Migrations](https://sequelize.org/master/manual/migrations.html)
+* [Sequelize Cli] (https://github.com/sequelize/cli)
+* [Migration Tool](https://github.com/sequelize/umzug)
 
 
 ## Heroku 

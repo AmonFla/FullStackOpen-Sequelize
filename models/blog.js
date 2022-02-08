@@ -30,9 +30,14 @@ Blog.init({
     type: DataTypes.INTEGER,
     allowNull: false,
     validate:{
-      min: 1991,
-      max: new Date().getFullYear(),
-      msg: `year mus be between 1991 and ${new Date().getFullYear()}`
+      min: {
+        args: 1991,
+        msg: 'year must be greater than or equal to 1991'
+      },
+      max: {
+        args: new Date().getFullYear(),
+        msg: `year must be less than or equal to ${new Date().getFullYear()}`
+      },
     }
   }
 
