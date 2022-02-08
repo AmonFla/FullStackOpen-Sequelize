@@ -12,6 +12,9 @@ Ejercicios de la sección Relational Database del curso de https://fullstackopen
 * [Migrations](https://sequelize.org/master/manual/migrations.html)
 * [Sequelize Cli] (https://github.com/sequelize/cli)
 * [Migration Tool](https://github.com/sequelize/umzug)
+* [Basics of queries involving associations](https://sequelize.org/master/manual/assocs.html#basics-of-queries-involving-associations)
+* [Special methods/mixins added to instances](https://sequelize.org/master/manual/assocs.html#special-methods-mixins-added-to-instances)
+* [Scopes] (https://sequelize.org/master/manual/scopes.html)
 
 
 ## Heroku 

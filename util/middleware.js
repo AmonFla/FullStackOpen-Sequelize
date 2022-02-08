@@ -1,9 +1,9 @@
 const jwt = require('jsonwebtoken')
 const { SECRET } = require('./config')
+const ActiveSession = require('./../models/activeSession')
 
 const errorHundler = (error, req, res, next) => {
 
-  console.log(error)
   if (error.name === 'NotFound') {
     return res.sendStatus(404)
   }else if (error.name === 'SequelizeValidationError'){
@@ -18,12 +18,17 @@ const unknownEndpoint = (request, response) => {
   response.status(404).send({ error: 'unknown endpoint' })
 }
 
-const getTokenFrom = (req, resp,next) => {
+const getTokenFrom = async (req, resp,next) => {
   const authorization = req.get('authorization')
+  req.token = null
   if(authorization && authorization.toLowerCase().startsWith('bearer ')){
-    req.token = authorization.substring(7)
-  }else{
-    req.token = null
+    const token = authorization.substring(7)
+    const activeSession = await ActiveSession.findOne({ token })
+    if(activeSession)
+      req.token = token
+    else{
+      return resp.status(401).json({ error: 'token invalid' })
+    }
   }
   next()
 }
