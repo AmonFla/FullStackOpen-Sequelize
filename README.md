@@ -1,7 +1,7 @@
 # FullStackOpen-Sequelize
-Ejercicios de la sección Relational Database del curso de https://fullstackopen.com
+Exercises from the Relational Database section of the course https://fullstackopen.com
 
-## Links Útiles
+## Useful Links
 * [Sequelize](https://sequelize.org/master/)
 * [Direct SQL](https://sequelize.org/master/manual/raw-queries.html)
 * [Model](https://sequelize.org/master/manual/model-basics.html)
@@ -18,8 +18,8 @@ Ejercicios de la sección Relational Database del curso de https://fullstackopen
 
 
 ## Heroku 
-* heroku create < app-name >: crea la aplicación app-name
-* heroku addons:create heroku-postgresql:hobby-dev -a < app-name >: crea una base postgres para app-name
-* heroku config -a < app-name >: retorna las variables entre las que esta la url de conexión a la base de datos
-* heroku run psql -h < host-of-postgres-addon > -p 5432 -U < username > < dbname > -a < app-name >: accedo al psql por consola
+* heroku create < app-name >: create app app-name
+* heroku addons:create heroku-postgresql:hobby-dev -a < app-name >: create a postgres base for app-name
+* heroku config -a < app-name >: returns the variables among which is the connection url to the database
+* heroku run psql -h < host-of-postgres-addon > -p 5432 -U < username > < dbname > -a < app-name >: access to psql by console
  
